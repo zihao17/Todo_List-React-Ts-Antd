@@ -239,3 +239,12 @@ body {
 ::-webkit-scrollbar-thumb:hover {
   background: #a8a8a8;
 }
+
+/* 手绘字体样式 */
+.handwritten-text {
+  font-family: 'Ma Shan Zheng', cursive, sans-serif;
+  font-weight: bold;
+  color: #d80f0fc1;
+  text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.502);
+  letter-spacing: 1px;
+}

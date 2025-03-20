@@ -2,32 +2,31 @@ import React, { useState, useEffect } from 'react';
 import { Typography, Card, Divider } from 'antd';
 import { CheckSquareOutlined } from '@ant-design/icons';
 
-const { Title } = Typography;
+const { Title, Text } = Typography;
 
 const motivationalPhrases = [
-  "行动是成功的阶梯",
-  "今天做的最好，明天会更好",
-  "把时间用在进步上",
-  "成功源于不懈的努力",
-  "让每一天都充满意义",
-  "专注当下，成就未来",
-  "坚持就是胜利",
-  "做最好的自己",
-  "让梦想照进现实",
-  "付出终有回报"
+  "BUG是程序员的经验值，今天你又升级啦！",
+  "当生活给你404，就Ctrl+F寻找新机会🚀",
+  "今天的你比昨天多了24小时的经验值💪",
+  "努力就像Git提交，每天都要有新的版本✨",
+  "休息是为了走更长的路（和写更多的代码）☕",
+  "每个成功的背后，都是咖啡因与决心的混合物💻",
+  "失败只是系统在加载更大的成功进度条⏳",
+  "你今天的努力，是未来自己的作弊码🎮",
+  "知识就像内存，永远不会嫌多🧠",
+  "保持好奇心，世界是你的游乐场🎡",
+  "压力是暂时的，成就感的缓存是永久的💾",
+  "生活不是单线程，记得给自己安排GC时间♻️",
+  "今天的摸鱼是为了明天的灵感跃迁🐟",
+  "你比Wi-Fi信号更值得满格📶",
+  "每个小目标都是人生游戏里的成就奖杯🏆"
 ];
 
+
 const TodoHeader: React.FC = () => {
-  const [phrase, setPhrase] = useState(motivationalPhrases[0]);
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      const randomIndex = Math.floor(Math.random() * motivationalPhrases.length);
-      setPhrase(motivationalPhrases[randomIndex]);
-    }, 5000); // 每5秒更换一次短语
-
-    return () => clearInterval(interval);
-  }, []);
+  // 只在组件挂载时生成一次随机短语
+  const randomIndex = Math.floor(Math.random() * motivationalPhrases.length);
+  const [phrase] = useState(motivationalPhrases[randomIndex]);
 
   return (
     <Card bordered={false} style={{ borderRadius: 8, textAlign: 'center' }}>
@@ -36,9 +35,9 @@ const TodoHeader: React.FC = () => {
         任务清单
       </Title>
       <Divider style={{ margin: '16px 0' }} />
-      <Typography.Text type="secondary" style={{ fontSize: 16 }}>
+      <Text strong className="handwritten-text" style={{ fontSize: 18, display: 'block' }}>
         {phrase}
-      </Typography.Text>
+      </Text>
     </Card>
   );
 };

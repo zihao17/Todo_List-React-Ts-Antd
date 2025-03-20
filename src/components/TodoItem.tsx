@@ -53,13 +53,10 @@ const TodoItem: React.FC<TodoItemProps> = ({
   };
 
   const formatDate = (date: Date) => {
-    return new Intl.DateTimeFormat('zh-CN', {
-      year: 'numeric',
-      month: '2-digit',
-      day: '2-digit',
-      hour: '2-digit',
-      minute: '2-digit',
-    }).format(date);
+    const month = date.getMonth() + 1;
+    const day = date.getDate();
+    const hour = date.getHours();
+    return `${month}月${day}日 ${hour}时`;
   };
 
   return (
